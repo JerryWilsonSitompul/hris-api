@@ -1,0 +1,26 @@
+created:
+    - database/factories/EmployeeFactory.php
+    - database/factories/DepartmentFactory.php
+    - database/factories/PositionFactory.php
+    - database/factories/AttendanceFactory.php
+    - database/factories/LeaveFactory.php
+    - database/factories/PayrollFactory.php
+    - database/migrations/2025_01_26_023704_create_employees_table.php
+    - database/migrations/2025_01_26_023705_create_departments_table.php
+    - database/migrations/2025_01_26_023706_create_positions_table.php
+    - database/migrations/2025_01_26_023707_create_attendances_table.php
+    - database/migrations/2025_01_26_023708_create_leaves_table.php
+    - database/migrations/2025_01_26_023709_create_payrolls_table.php
+    - app/Models/Employee.php
+    - app/Models/Department.php
+    - app/Models/Position.php
+    - app/Models/Attendance.php
+    - app/Models/Leave.php
+    - app/Models/Payroll.php
+models:
+    Employee: { name: string, department_id: foreignId, position_id: foreignId, nik: string, join_date: date, photo_path: 'string nullable' }
+    Department: { name: string }
+    Position: { name: string }
+    Attendance: { employee_id: foreignId, check_in: datetime, check_out: 'datetime nullable', check_in_location: 'string nullable', check_out_location: 'string nullable', check_in_photo: 'string nullable', check_out_photo: 'string nullable' }
+    Leave: { employee_id: foreignId, start_date: date, end_date: date, type: string, reason: 'text nullable', status: string }
+    Payroll: { employee_id: foreignId, basic_salary: decimal, allowances: decimal, deductions: decimal, net_salary: decimal, payroll_date: date }
