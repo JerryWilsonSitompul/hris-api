@@ -11,8 +11,9 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::with('department', 'position')->get();
-        return view('employees.index', compact('employees'));
+        return response()->json(data: Employee::with('department', 'position')->get());
+        // $employees = Employee::with('department', 'position')->get();
+        // return view('employees.index', compact('employees'));
     }
 
     public function create()

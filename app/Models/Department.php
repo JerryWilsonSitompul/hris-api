@@ -26,4 +26,11 @@ class Department extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    // Relationship with Employee
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
+
 }

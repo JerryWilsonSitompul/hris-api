@@ -38,4 +38,16 @@ class Employee extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    // Relationship with Department
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    // Relationship with Position
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
 }

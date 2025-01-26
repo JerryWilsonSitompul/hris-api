@@ -3,14 +3,14 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\AttendanceController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\PositionController;
-use App\Http\Controllers\SalaryController;
-use App\Http\Controllers\LeaveController;
-use App\Http\Controllers\PayrollController;
+
+
+use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\Api\DepartmentController;
+use App\Http\Controllers\Api\PositionController;
+use App\Http\Controllers\Api\AttendanceController;
+use App\Http\Controllers\Api\LeaveController;
+use App\Http\Controllers\Api\PayrollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +38,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
     Route::post('/logout', [AuthController::class, 'logout']);
     
-    // Employee Management
     Route::apiResource('employees', EmployeeController::class);
+    Route::apiResource('departments', DepartmentController::class);
+    Route::apiResource('positions', PositionController::class);
+    Route::apiResource('attendances', AttendanceController::class);
+    Route::apiResource('leaves', LeaveController::class);
+    Route::apiResource('payrolls', PayrollController::class);
     
     // Attendance Endpoint
     Route::post('/attendance/check-in', [AttendanceController::class, 'checkIn']);
